@@ -1,43 +1,23 @@
-# ACR Build Hello World
+# Django starter app for Web App on Linux
 
-This Node.js application is for use in demonstrating Azure Container Registry Build (ACR Build), a suite of features within [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) for performing Docker container builds on [Azure](https://azure.com).
+A simple Python Django application running in a Docker container. The custom image uses port 8000. 
 
-## Features
+## Setting up custom image for web App on Linux 
+- Create a Web App on Linux using CLI or Azure portal
+- Configure your web app to custom image 
+- Add an App Setting ```WEBSITE_PORT = 8000 ``` for your app 
+- Browse your site 
+ 
+# Contributing
 
-This project includes three Dockerfiles:
+This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
+the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
-* *Dockerfile* - Non-parameterized Dockerfile for building the application. References a base image in Docker Hub.
-* *Dockerfile-app* - Parameterized, accepts the `REGISTRY_NAME` argument to specify the FQDN of the container registry from which the base image is pulled.
-* *Dockerfile-base* - Defines a base image for the application defined in *Dockerfile-app*.
+When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
+a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
+provided by the bot. You will only need to do this once across all repos using our CLA.
 
-## Getting Started
-
-### Companion articles
-
-This project is intended for use with the following articles on [docs.microsoft.com][docs]:
-
-* [Build container images in the cloud with Azure Container Registry Build][build-quick]
-* [Automate container image builds with Azure Container Registry Build][build-task]
-* [Automate image builds on base image update with Azure Container Registry Build][build-base]
-
-### Quickstart
-
-Although intended for use with the companion articles, you can perform the following steps to run the sample application. These steps require a local [Docker](http://docker.com) installation.
-
-1. `git clone https://github.com/Azure-Samples/acr-build-helloworld-node`
-1. `cd acr-build-helloworld-node`
-1. `docker build -t helloacrbuild:v1 .`
-1. `docker run -d -p 8080:80 helloacrbuild:v1`
-1. Navigate to http://localhost:8080 to view the running application
-
-## Resources
-
-[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-
-[Azure Container Registry documentation](https://docs.microsoft.com/azure/container-registry/)
-
-<!-- LINKS - External -->
-[build-quick]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-build
-[build-task]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-build-task
-[build-base]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-base-image-update
-[docs]: http://docs.microsoft.com
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
+contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
