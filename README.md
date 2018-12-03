@@ -1,29 +1,43 @@
-# iis
-IIS on Windows Nano Server
+# ACR Build Hello World
 
-This project is all about Windows Nano Server and Role IIS on a Docker Container.
+This Node.js application is for use in demonstrating Azure Container Registry Build (ACR Build), a suite of features within [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) for performing Docker container builds on [Azure](https://azure.com).
 
-We use as docker container base an unofficial repository on Docker Hub.
-You can see here: https://hub.docker.com/u/nanoserver/
+## Features
 
+This project includes three Dockerfiles:
 
-We always include Dockerfiles for Windows Containers - Docker. 
-As host OS we test on Windows 10 and Windows Server 2016 with Windows Containers Rol and Docker.
+* *Dockerfile* - Non-parameterized Dockerfile for building the application. References a base image in Docker Hub.
+* *Dockerfile-app* - Parameterized, accepts the `REGISTRY_NAME` argument to specify the FQDN of the container registry from which the base image is pulled.
+* *Dockerfile-base* - Defines a base image for the application defined in *Dockerfile-app*.
 
-Getting started
+## Getting Started
 
-Windows 10
+### Companion articles
 
-    Physical Machine or Virtual Machine
-        Install Docker for 1.13.0-beta39 on your Windows 10 machine.
+This project is intended for use with the following articles on [docs.microsoft.com][docs]:
 
-Windows Server 2016
+* [Build container images in the cloud with Azure Container Registry Build][build-quick]
+* [Automate container image builds with Azure Container Registry Build][build-task]
+* [Automate image builds on base image update with Azure Container Registry Build][build-base]
 
-    Register into Microsoft evaluation Center. Download Windows Server 2016 Eval.
-    Get a Windows Server 2016 Virtual Machine
-        Physical Machine / Virtual Machine
-            Install on a physical machine or an virtual machine Windows Server and Containers, install Docker into Windows 2016 
-        Azure
-            Deploy Nano Server on Azure with docker-windows-azure templates.
-            Create a Windows Server 2016 Core with Containers.
+### Quickstart
 
+Although intended for use with the companion articles, you can perform the following steps to run the sample application. These steps require a local [Docker](http://docker.com) installation.
+
+1. `git clone https://github.com/Azure-Samples/acr-build-helloworld-node`
+1. `cd acr-build-helloworld-node`
+1. `docker build -t helloacrbuild:v1 .`
+1. `docker run -d -p 8080:80 helloacrbuild:v1`
+1. Navigate to http://localhost:8080 to view the running application
+
+## Resources
+
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+
+[Azure Container Registry documentation](https://docs.microsoft.com/azure/container-registry/)
+
+<!-- LINKS - External -->
+[build-quick]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-build
+[build-task]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-build-task
+[build-base]: https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-base-image-update
+[docs]: http://docs.microsoft.com
